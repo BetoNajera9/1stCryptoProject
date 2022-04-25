@@ -8,21 +8,20 @@ def compare(string, real):
     return False
 
 def main(string):
-  print(f'Test HASHING')
-  print(f"String: {string.decode('UTF-8')}")
 
   print('=======================================================================')
   #SHA-2 384
   print(f'SHA-2 384')
+  data=[]
 
   start = timeit.default_timer()
   sha_2_384 = hashlib.sha384()
   sha_2_384.update(string)
   print(f'string: {sha_2_384.hexdigest()}')
   end = timeit.default_timer()
-
+  
   print(f'time: {"{:f}".format(end - start)} sec')
-
+  data.append(str(end - start)) 
 
   print('=======================================================================')
   #SHA-2 512
@@ -35,6 +34,7 @@ def main(string):
   end = timeit.default_timer()
 
   print(f'time: {"{:f}".format(end - start)} sec')
+  data.append(str(end - start)) 
 
   print('=======================================================================')
   #SHA-3 384
@@ -47,6 +47,7 @@ def main(string):
   end = timeit.default_timer()
 
   print(f'time: {"{:f}".format(end - start)} sec')
+  data.append(str(end - start)) 
 
   print('=======================================================================')
   #SHA-3 512
@@ -56,6 +57,9 @@ def main(string):
   sha_3_512 = hashlib.sha3_512()
   sha_3_512.update(string)
   print(f'string: {sha_3_512.hexdigest()}')
-  end =timeit.default_timer()
+  end = timeit.default_timer()
 
   print(f'time: {"{:f}".format(end - start)} sec')
+  data.append(str(end - start)) 
+
+  return data
