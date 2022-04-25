@@ -56,19 +56,26 @@ def main():
   strs = []
 
   # Variables para el numero de strings y el tamaño de los strings
+  print('Se realizan 10 preubas a la vez')
+  lengthString=input('De una longitud para el tamano de vector que se quiera probar: ')
+  lengthString=int(lengthString)
   numberStrings=10
-  lengthString=10
+  n=1
 
-  for _ in range(numberStrings):
+  for x in range(numberStrings):
     strs.append(createString(lengthString))
 
   for i in strs:
+    print('Prueba ' + str(n))
+    print('String de prueba' + str(bytes(i, 'utf-8')))
     chachaes.algoritmos(bytes(i, 'utf-8'))
     sha.main(bytes(i, 'utf-8'))
     rsa_oae.rsaOAEP(bytes(i, 'utf-8'))
-    # rsa_pss.rsaPSS(bytes(i, 'utf-8'))
+    rsa_pss.rsaPSS(bytes(i, 'utf-8'))
     ecdsa_prime.ecdsaP(bytes(i, 'utf-8'))
     ecdsa_binary.ecdsaB(bytes(i, 'utf-8'))
+    print('\n') 
+    n=n+1
 
   # except Exception as e:
   #   print(e)
