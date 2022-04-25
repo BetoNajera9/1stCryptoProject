@@ -11,7 +11,7 @@ def algoritmos(plaintext):
 	key = get_random_bytes(32) #Misma llave para todos, de 256 bits
 	print('=======================================================================')
 	#Chacha20 256 cifrado
-
+	data=[]
 	print(f'Chacha20 256 Cifrado')
 	start=timeit.default_timer() #Empieza a contar el tiempo
 	cipher = ChaCha20.new(key=key)
@@ -21,8 +21,10 @@ def algoritmos(plaintext):
 	result = json.dumps({'nonce':nonce, 'ciphertext':ct})
 	print(ct) #Mostramos solo el texto cifrado
 	end=timeit.default_timer() #Termina de contar el tiempo
+	data.append(str(end - start)) 
 	print(f'time: {"{:f}".format(end - start)} sec')
 	print('=======================================================================')
+  	
 	#Chacha20 256 Descifrado
 
 	print(f'Chacha20 256 Descifrado')
@@ -39,6 +41,7 @@ def algoritmos(plaintext):
 	end=timeit.default_timer() #Termina de contar el tiempo
 	print(f'time: {"{:f}".format(end - start)} sec')
 	print('=======================================================================')
+	data.append(str(end - start)) 
 	#AES-EBC 256 Cifrado
 
 	print(f'AES-EBC 256 Cifrado')
@@ -50,6 +53,7 @@ def algoritmos(plaintext):
 	end=timeit.default_timer() #Termina de contar el tiempo
 	print(f'time: {"{:f}".format(end - start)} sec')
 	print('=======================================================================')
+	data.append(str(end - start)) 
 	#AES-EBC 256 Descifrado
 
 	print(f'AES-EBC 256 Descifrado')
@@ -59,6 +63,7 @@ def algoritmos(plaintext):
 	end=timeit.default_timer() #Termina de contar el tiempo
 	print(f'time: {"{:f}".format(end - start)} sec')
 	print('=======================================================================')
+	data.append(str(end - start)) 
 	#AES-GCM 256 Cifrado
 
 	print(f'AES-GCM 256 Cifrado')
@@ -75,6 +80,7 @@ def algoritmos(plaintext):
 	end=timeit.default_timer() #Termina de contar el tiempo
 	print(f'time: {"{:f}".format(end - start)} sec')
 	print('=======================================================================')
+	data.append(str(end - start)) 
 	#AES-GCM 256 Descifrado
 
 	print(f'AES-GCM 256 Descifrado')
@@ -92,3 +98,5 @@ def algoritmos(plaintext):
 		print("Incorrect decryption")
 	end=timeit.default_timer() #Termina de contar el tiempo
 	print(f'time: {"{:f}".format(end - start)} sec')
+	data.append(str(end - start)) 
+	return data
