@@ -39,8 +39,8 @@ def installLibraries():
       print('-> pycryptodome')
 
 def createString(length):
-  str = random.sample(string.ascii_letters, length)
-  return ''.join(str)
+  result_str = ''.join(random.choice(string.ascii_letters) for i in range(length))
+  return result_str
 
 
 
