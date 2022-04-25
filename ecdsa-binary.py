@@ -6,6 +6,7 @@ import binascii
 def ecdsaB(message):
 	print('=======================================================================')
 	print(' Test ECDSA BINARY FIELD')
+	data=[]
 	#message=b'hola que hace'
 	# Con una curva en el campo binario de 571 bits : SECT571R1 o  NIST B-571
 	private_key = ec.generate_private_key( ec.SECT571R1() )
@@ -26,5 +27,6 @@ def ecdsaB(message):
 			print('Validacion Realizada.')
 			print('TRUE')
 		print('Tiempo de Ejecucion:' + str(end-start)) 
+		data.append(str(end - start)) 
 		i=i+1
-
+	return data
