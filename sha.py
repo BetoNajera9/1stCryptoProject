@@ -7,9 +7,7 @@ def compare(string, real):
   else:
     return False
 
-def main():
-  string = b'Nobody inspects'
-
+def main(string):
   print(f'Test HASHING')
   print(f"String: {string.decode('UTF-8')}")
 
@@ -61,5 +59,3 @@ def main():
   end = time.time()
 
   print(f'time: {"{:f}".format(end - start)} sec')
-
-    

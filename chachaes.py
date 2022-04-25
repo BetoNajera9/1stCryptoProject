@@ -2,13 +2,12 @@ import json
 import timeit
 from base64 import b64encode
 from base64 import b64decode
+from Crypto.Util.Padding import pad, unpad
 from Crypto.Cipher import ChaCha20
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
-def algoritmos():
-
-	plaintext = b'Nobody inspects this place right' #Texto a cifrar
+def algoritmos(plaintext):
 	key = get_random_bytes(32) #Misma llave para todos, de 256 bits
 
 	print(f'Test CIPHER ========================================================================================================')
@@ -48,7 +47,7 @@ def algoritmos():
 	print(f'AES-EBC 256 Cifrado')
 	start=timeit.default_timer() #Empieza a contar el tiempo
 	cipher = AES.new(key, AES.MODE_ECB)
-	ciphertext=cipher.encrypt(plaintext)
+	ciphertext=cipher.encrypt(pad(plaintext,16))
 	fmt= '{:02X}' * len(ciphertext)
 	print(fmt.format(*ciphertext)) #Mostramos solo el texto cifrado
 	end=timeit.default_timer() #Termina de contar el tiempo
@@ -96,7 +95,3 @@ def algoritmos():
 		print("Incorrect decryption")
 	end=timeit.default_timer() #Termina de contar el tiempo
 	print(f'time: {"{:f}".format(end - start)} sec')
-
-#Multiples pruebas para obtener diferentes tiempos
-for i in range(20):
-	algoritmos()
