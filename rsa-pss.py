@@ -13,6 +13,7 @@ def rsaPSS(message):
 	public_key = key.publickey().export_key()
 	private_key = key.export_key()
 	i=0
+	print('RSA-PSS -----------------------------------------------------------------------------')
 
 	while i < 2 :
 		h = SHA256.new(message)
@@ -36,6 +37,7 @@ def rsaPSS(message):
 		print('Tiempo de Ejecucion:' + str(end-start)) 
 		print('\n')
 		i=i+1
+	print('-----------------------------------------------------------------------------')
 
 
 
