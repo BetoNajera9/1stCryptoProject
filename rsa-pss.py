@@ -11,6 +11,7 @@ import binascii
 def rsaPSS(message):
 	print('=======================================================================')
 	print('Test RSA-PSS')
+	data=[]
 	#message=b'hola que hace'
 	key = RSA.generate(2048)
 	public_key = key.publickey().export_key()
@@ -34,10 +35,9 @@ def rsaPSS(message):
 			print(binascii.hexlify(signature))
 		elif i==1:
 			print('Verificacion Realizada.')	
-	  
-		
 		print('Tiempo de Ejecucion:' + str(end-start)) 
+		data.append(str(end - start)) 
 		i=i+1
-
+	return data
 
 
