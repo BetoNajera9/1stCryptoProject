@@ -7,6 +7,7 @@ import binascii
 def rsaOAEP(message):
 	print('=======================================================================')
 	print('Test RSA-PSS')
+	data=[]
 	#message=b'hola que hace'
 	i=0
 	key = RSA.generate(2048)
@@ -31,10 +32,8 @@ def rsaOAEP(message):
 		elif i==1:
 			print('Decriptacion:' )
 			print(message)
-		print('Tiempo de Ejecucion:' + str(end-start)) 
+		print('Tiempo de Ejecucion:' + str(end-start))
+		data.append(str(end - start)) 
 		i=i+1
-	
-
-
-
+	return data
 
