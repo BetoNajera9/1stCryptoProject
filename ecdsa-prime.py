@@ -7,6 +7,7 @@ import binascii
 def ecdsaP(message):
 	print('=======================================================================')
 	print(' Test ECDSA PRIME FIELD')
+	data=[]
 	#message=b'hola que hace'
 	# Con una curva en el campo de los primos de 521 bits : SECP521R1 o NIST P-521
 	private_key = ec.generate_private_key( ec.SECP521R1() )
@@ -27,7 +28,6 @@ def ecdsaP(message):
 			print('Validacion Realizada.')
 			print('TRUE')
 		print('Tiempo de Ejecucion:' + str(end-start)) 
+		data.append(str(end - start)) 
 		i=i+1
-
-
-
+	return data
