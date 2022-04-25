@@ -9,9 +9,6 @@ from Crypto.Random import get_random_bytes
 
 def algoritmos(plaintext):
 	key = get_random_bytes(32) #Misma llave para todos, de 256 bits
-
-	print(f'Test CIPHER ========================================================================================================')
-	print(f"String: {plaintext.decode('UTF-8')}")
 	print('=======================================================================')
 	#Chacha20 256 cifrado
 
